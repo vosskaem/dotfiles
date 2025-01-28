@@ -3,18 +3,17 @@ return {
   opts = {
     completion = {
       list = {
-        -- selection = "preselect"
-        -- selection = "auto_insert"
-        -- do not accept first match on ENTER:
-        selection = "auto_insert",
+        selection = {
+          -- do not accept first match on ENTER:
+          preselect = false,
+          auto_insert = true,
+        },
       },
-
       keyword = {
         -- range = "prefix",
         -- range = "full",
         range = "full",
       },
-
       menu = {
         -- Don't automatically show the completion menu
         -- auto_show = false,
