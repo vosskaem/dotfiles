@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ ! -f ~/.config/nvim/lazyvim.json ] ; then
-    cat <<EOF > ~/.config/nvim/lazyvim.json
+  mkdir -p ~/.config/nvim
+  cat <<EOF > ~/.config/nvim/lazyvim.json
 {
   "extras": [
     "lazyvim.plugins.extras.coding.mini-surround",
