@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Oracle SQL Developer
+Comment=A graphical tool for database development
+Icon=/opt/sqldeveloper/icon.png
+Exec=env LANG=C /opt/sqldeveloper/sqldeveloper.sh
+Terminal=false
+Type=Application
+Categories=Development;Database;Java
+StartupNotify=true
+StartupWMClass=sun-awt-X11-XFramePeer
+

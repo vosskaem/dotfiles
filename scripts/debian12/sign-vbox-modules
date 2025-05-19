@@ -1,0 +1,29 @@
+#!/bin/bash
+
+KEY="/var/lib/shim-signed/mok/MOK.priv"
+CERT="/var/lib/shim-signed/mok/MOK.der"
+
+# Prüfen, ob beides vorhanden ist
+if [[ ! -f "$KEY" || ! -f "$CERT" ]]; then
+  echo "Signierschlüssel oder Zertifikat fehlt."
+  exit 1
+fi
+
+KVER="$(uname -r)"
+MODDIR="/lib/modules/$KVER/misc"
+
+# Liste der relevanten VBox-Module
+MODULES=(vboxguest vboxsf vboxvideo)
+
+for mod in "${MODULES[@]}"; do
+  FILE="$MODDIR/${mod}.ko"
+  if [[ -f "$FILE" ]]; then
+    echo "Signiere Modul: $mod"
+    /usr/src/linux-headers-$KVER/scripts/sign-file sha256 "$KEY" "$CERT" "$FILE"
+  else
+    echo "Modul $mod nicht gefunden – übersprungen."
+  fi
+done
+
+echo "Fertig. Jetzt ggf. 'sudo modprobe -r' und 'sudo modprobe' ausführen oder rebooten."
+
