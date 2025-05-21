@@ -21,6 +21,13 @@ alias egrep='egrep --color=auto'
 
 alias start='xdg-open'
 
+## fd is renamed to fdfind on Debian
+if ! command -v fd &> /dev/null; then
+  if command -v fdfind &> /dev/null; then
+    alias fd='fdfind'
+  fi
+fi
+
 if command -v lazygit &> /dev/null; then
     alias lg='lazygit'
 fi
