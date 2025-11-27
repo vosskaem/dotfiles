@@ -12,7 +12,7 @@
 
 return {
   "goolord/alpha-nvim",
-  dependencies = { "echasnovski/mini.icons" },
+  dependencies = { "nvim-mini/mini.icons" },
   config = function()
     local alpha = require("alpha")
     local startify = require("alpha.themes.startify")
