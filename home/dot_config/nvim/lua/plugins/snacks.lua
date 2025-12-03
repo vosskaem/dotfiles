@@ -18,9 +18,7 @@ return {
         -- disable indent if we are in a ssh session to
         -- prevent clutter when copying from terminal screen
         -- See also: options.lua
-        enabled = not (vim.fn.exists("$SSH_CONNECTION") == 1 or vim.fn.executable("pstree") == 0 or vim.fn
-          .system("pstree -sl $$ | grep -q sshd; echo $?")
-          :match("0")),
+        enabled = not vim.g.is_ssh_session,
       },
     },
   },
