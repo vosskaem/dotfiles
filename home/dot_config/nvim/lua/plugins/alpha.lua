@@ -34,6 +34,7 @@ return {
         val = {
           -- startify.button("f", "  Find file", ":FzfLua files<CR>"),
           startify.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
+          startify.button( "c", "  Config files", ":FzfLua files cwd=" .. vim.fn.stdpath("config") .. "<CR>"),
           startify.button("l", "  Lazy", ":Lazy<CR>"),
           startify.button("x", "󰏖  LazyExtras", ":LazyExtras<CR>"),
         },
