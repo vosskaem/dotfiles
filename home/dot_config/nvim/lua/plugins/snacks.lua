@@ -15,10 +15,10 @@ return {
         },
       },
       indent = {
-        -- disable indent if we are in a ssh session to
+        -- disable indent if we are not able to use clipboard
         -- prevent clutter when copying from terminal screen
         -- See also: options.lua
-        enabled = not vim.g.is_ssh_session,
+        enabled = vim.g.is_clipboard_possible,
       },
     },
   },
