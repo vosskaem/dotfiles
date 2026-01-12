@@ -43,7 +43,8 @@ return {
       {
         type = "group",
         val = {
-          startify.button("q", "  Quit", ":qa<CR>"),
+          -- startify.button("q", "󰗼  Quit", ":qa<CR>"),
+          startify.button("q", "󰩈  Quit", ":qa<CR>"),
         },
       },
       { type = "padding", val = 1 },
