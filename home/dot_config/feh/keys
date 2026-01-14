@@ -1,0 +1,51 @@
+# Max 3 keys per binding
+# Double ## documents the default
+
+## toggle_pause h
+toggle_pause
+
+## toggle_keep_vp k
+toggle_keep_vp
+
+## save_filelist L
+save_filelist
+
+
+## next_img n space right
+next_img n j Right
+
+## prev_img p BackSpace Left
+prev_img p k Left
+
+## zoom_in KP_Add Up
+zoom_in KP_Add Up l
+
+## zoom_out KP_Subtract Down
+zoom_out KP_Subtract Down h
+
+## scroll_left KP_left C-Left
+scroll_left KP_Left C-Left H
+
+## scroll_right KP_Right C-Right
+scroll_right KP_Right C-Right L
+
+## scroll_down KP_Down C-Down
+scroll_down KP_Down C-Down J
+
+## scroll_up KP_Up C-Up
+scroll_up KP_Up C-Up K
+
+
+## menu_up Up
+menu_up Up k
+
+## menu_down Down
+menu_down Down j
+
+## menu_parent Left
+menu_parent Left h
+
+## menu_child Right
+menu_child Right l
+
+

@@ -1,4 +1,4 @@
-feh -F --auto-rotate --cache-size 2048 -d --draw-exif --on-last-slide hold --sort name --version-sort
+feh -ZF --cache-size 2048 -d --draw-exif --on-last-slide hold --sort dirname --version-sort --hide-pointer
 #-version-sort
 # --version-sort
 
