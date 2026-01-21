@@ -27,8 +27,37 @@ else
   end
 
   local function has_x11_clipboard()
+    -- Need an X display at all
     local d = vim.env.DISPLAY
-    return d ~= nil and d ~= ""
+    if not d or d == "" then
+      return false
+    end
+
+    -- Fast path if env is present
+    local st = vim.env.XDG_SESSION_TYPE
+    if st == "x11" then
+      return true
+    elseif st == "wayland" then
+      return false
+    end
+
+    -- Fallback: ask logind for the session type of the *real user* (works for sudo -i)
+    local uid = tonumber(vim.env.SUDO_UID or "") or vim.fn.getuid()
+
+    local sessions = vim.fn.systemlist({ "loginctl", "list-sessions", "--no-legend" }) or {}
+    for _, line in ipairs(sessions) do
+      local sid = line:match("^(%S+)")
+      if sid then
+        local u = (vim.fn.systemlist({ "loginctl", "show-session", sid, "-p", "User", "--value" }) or {})[1]
+        if tonumber(u) == uid then
+          local t = ((vim.fn.systemlist({ "loginctl", "show-session", sid, "-p", "Type", "--value" }) or {})[1] or ""):lower()
+          return t == "x11"
+        end
+      end
+    end
+
+    -- If we can't determine session type reliably, treat as "not safely X11"
+    return false
   end
 
   -- the following variable is also used in snacks.lua
