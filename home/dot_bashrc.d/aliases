@@ -49,9 +49,13 @@ fi
 if [ -f /usr/lib64/opensc-pkcs11.so ]; then
     # Archlinux
     alias ssh-add-smartcard='ssh-add -s /usr/lib64/opensc-pkcs11.so'
+    alias ssh-remove-smartcard='ssh-add -e /usr/lib64/opensc-pkcs11.so'
+    alias ssh-readd-smartcard='ssh-add -e /usr/lib64/opensc-pkcs11.so && ssh-add -s /usr/lib64/opensc-pkcs11.so'
 fi
 
 if [ -f /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so ]; then
     # Debian
     alias ssh-add-smartcard='ssh-add -s /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so'
+    alias ssh-remove-smartcard='ssh-add -e /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so'
+    alias ssh-readd-smartcard='ssh-add -e /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so && ssh-add -s /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so'
 fi
