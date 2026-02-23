@@ -59,3 +59,7 @@ if [ -f /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so ]; then
     alias ssh-remove-smartcard='ssh-add -e /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so'
     alias ssh-readd-smartcard='ssh-add -e /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so && ssh-add -s /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so'
 fi
+
+if command -v podman-desktop &> /dev/null; then
+    alias podman-desktop='XDG_SESSION_TYPE=x11 podman-desktop'
+fi
