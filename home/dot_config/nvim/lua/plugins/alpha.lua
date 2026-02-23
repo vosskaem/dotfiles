@@ -33,10 +33,14 @@ return {
         type = "group",
         val = {
           -- startify.button("f", "  Find file", ":FzfLua files<CR>"),
-          startify.button("r", "  Recent files", ":FzfLua oldfiles<CR>"),
-          startify.button( "c", "  Config files", ":FzfLua files cwd=" .. vim.fn.stdpath("config") .. "<CR>"),
-          startify.button("l", "  Lazy", ":Lazy<CR>"),
+          startify.button("p", "  Projects", ":lua Snacks.picker.projects()<CR>"),
+          startify.button("r", "  Recent files", ":lua Snacks.dashboard.pick('oldfiles')<CR>"),
+          startify.button( "c", "  Config files", ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})<CR>"),
+          startify.button("l", "󰒲  Lazy", ":Lazy<CR>"),
           startify.button("x", "󰏖  LazyExtras", ":LazyExtras<CR>"),
+          startify.button("m", "  Mason", ":Mason<CR>"),
+          -- 
+          -- 󰏖
         },
       },
       { type = "padding", val = 1 },
